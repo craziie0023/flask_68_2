@@ -1,8 +1,36 @@
 {% extends "base_template.html" %}
-{% block title %}
-    <title>Create Page</title>
-{% endblock %}
+{%block title%}
+<title>Create page</title>
+{%endblock%}
 
 {% block content %}
- <h1 class="text-center">Create Page</h1>
+<h1 class="text-center">Create Page</h1>
+
+<form action="{{ url_for('store') }}" method="POST" >
+    <div class="mb-3">
+        <label for="flower_name" class="form-label">Flower Name</label>
+        <input type="text" class="form-control" id="flower_name" name="flower_name" placeholder="Enter Flower Name" required>
+    </div>
+    <div class="mb-3">
+        <label for="flower_price" class="form-label">Flower Price</label>
+        <input type="Number" class="form-control" id="flower_price" name="flower_price" step="0.01" value="0.00">
+    </div>
+    <div class="mb-3">
+        <label for="flower_place" class="form-label">Place</label>
+        <select type="text" class="form-control" id="flower_place" name="flower_place">
+            <option value="Lotus">Lotus</option>
+            <option value="Big_C">Big_C</option>
+            <option value="Seven" selected>Seven</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="flower_description" class="form-label">Flower Description</label>
+        <textarea class="form-control" id="flower_description" name="flower_description" rows="5">
+        </textarea>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+</form>
 {% endblock %}
